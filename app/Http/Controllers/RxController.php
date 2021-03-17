@@ -111,6 +111,17 @@ class RxController extends Controller
         // dd($rx);
     }
 
+    public function getAllDrugs(Request $request)
+    {
+        $branded =  DB::table('interaction')->pluck('Brand_Name');
+        $generic = DB::table('interaction')->pluck('Generic_Name');
+        $medicine = DB::table('interaction')->pluck('Medicine_Name');
+
+        // dd($branded,$generic,$medicine);
+    //    return response()->json($branded);
+        return response()->json(["brands"=>$branded,"generic"=>$generic,"medicine"=>$medicine]);
+    }
+
     /**
      * Display the specified resource.
      *

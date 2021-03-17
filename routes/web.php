@@ -31,6 +31,8 @@ Route::get('/medicines','RxController@showAll')->name('medicines.index')->middle
 Route::get('/drug/interactions','InteractionController@index')->name('drug.interactions')->middleware('auth');
 Route::get('/interactions','InteractionController@indexInteraction')->name('interaction.index')->middleware('auth');
 
+Route::get('/getalldrugs','RxController@getAllDrugs')->name('getall.drugs');
+
 
 
 
