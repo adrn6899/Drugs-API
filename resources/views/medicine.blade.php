@@ -21,21 +21,23 @@
     </tr>
   </thead>
   <tbody>
+    <?php $counter = 1;?>
     @foreach($medicines as $medicine)
         <tr>
-        <th scope="row">{{$medicine->id}}</th>
+        <th scope="row">{{$counter}}</th>
         <td>{{$medicine->Brand_Name}}</td>
         <td>{{$medicine->Generic_Name}}</td>
         {{-- <td>{{$medicine->Description}}</td> --}}
         <td>{{$medicine->Ask_Doctor}}</td>
         <td>{{$medicine->Dosage}}</td>
-        <td>{{$medicine->Pregnant}}</td>
+        <td>{{ substr($medicine->Pregnant, 0, 120)}}</td>
         <td>{{$medicine->Is_Branded}}</td>
         <td>{{$medicine->Medicine_Name}}</td>
         <td>{{$medicine->RXCUI_ID}}</td>
         <td>{{$medicine->Interaction}}</td>
         <td>{{$medicine->Severity}}</td>
         </tr>
+        <?php $counter += 1; ?>
     @endforeach
   </tbody>
 </table>

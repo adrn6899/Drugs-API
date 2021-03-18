@@ -19,7 +19,7 @@
       </li>
     </ul>
     @if(Auth::check())
-      <a class="nav justify-content-end text-light" href="{{ route('logout') }}"><i class="fa fa-sign-out-alt fa-2x"> Logout</i></a>
+      <a class="nav justify-content-end text-light" href="{{ route('logout') }}" id="logout-destroy" onclick="onLogout()"><i class="fa fa-sign-out-alt fa-2x"> Logout</i></a>
     @else
       <a class="nav justify-content-end text-light" href="{{ route('login') }}"><i class="fa fa-user-lock fa-2x"> Login</i></a>
     @endif
