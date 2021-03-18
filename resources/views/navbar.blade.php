@@ -18,5 +18,10 @@
         <a class="nav-link" href="{{route('drug.interactions')}}">Know your medicine</a>
       </li>
     </ul>
+    @if(Auth::check())
+      <a class="nav justify-content-end text-light" href="{{ route('logout') }}"><i class="fa fa-sign-out-alt fa-2x"> Logout</i></a>
+    @else
+      <a class="nav justify-content-end text-light" href="{{ route('login') }}"><i class="fa fa-user-lock fa-2x"> Login</i></a>
+    @endif
   </div>
 </nav>
