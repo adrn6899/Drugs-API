@@ -20,13 +20,17 @@
     <div class="container" style="width: auto">
         <div id="left">
            <div>
-            </div>
-            <div class="row" id="main-left" style="width: 350px; ">
-
-            </div> 
+            <div class="row" id="main-left" style="width: 100%;">
+                    <div style="display:block;margin-left:auto;margin-right:auto;text-align:center;">
+                        <h1 class="text-muted"><i class="fas fa-pills fa-7x" style="color:#6c757d;"></i>
+                        <br> NO Content Available <span><h5>search for medicine</h5></span></h1> 
+                    </div>
+            </div> {{--main-left--}}
+          </div> 
         </div>
     </div>
 </form>
+</div>
     <script src="{{asset('js/index.js')}}"></script>
     <script src="{{asset('js/copyall.js')}}"></script>
     <script src="{{asset('js/rx.js')}}"></script>

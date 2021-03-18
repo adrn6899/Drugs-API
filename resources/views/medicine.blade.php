@@ -3,7 +3,7 @@
 <div style="padding:16px;">
 <h1>Medicine Records</h1>
 <h6><i>All medicinal records that has been verified and stored for purpose</i></h6>
-<table class="table table-striped">
+<table class="table table-striped" style="width:100%;">
   <thead>
     <tr>
       <th scope="col">#</th>
