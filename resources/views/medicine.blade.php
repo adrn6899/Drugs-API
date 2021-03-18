@@ -21,6 +21,8 @@
     </tr>
   </thead>
   <tbody>
+  {{-- make a counter and while looping on the medicine
+        increment it and use it for id --}}
     <?php $counter = 1;?>
     @foreach($medicines as $medicine)
         <tr>
@@ -28,9 +30,9 @@
         <td>{{$medicine->Brand_Name}}</td>
         <td>{{$medicine->Generic_Name}}</td>
         {{-- <td>{{$medicine->Description}}</td> --}}
-        <td>{{$medicine->Ask_Doctor}}</td>
-        <td>{{$medicine->Dosage}}</td>
-        <td>{{ substr($medicine->Pregnant, 0, 120)}}</td>
+        <td>{{ substr($medicine->Ask_Doctor,0,300)}}</td>
+        <td>{{substr($medicine->Dosage,0, 150)}}</td>
+        <td>{{ substr($medicine->Pregnant, 0, 150)}}</td>
         <td>{{$medicine->Is_Branded}}</td>
         <td>{{$medicine->Medicine_Name}}</td>
         <td>{{$medicine->RXCUI_ID}}</td>
