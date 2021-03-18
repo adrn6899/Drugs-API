@@ -43,5 +43,12 @@ Route::get('/getalldrugs','RxController@getAllDrugs')->name('getall.drugs');
 
 
 
+Route::get('/try',function(){
 
+    $response = Http::get('https://rxnav.nlm.nih.gov/REST/drugs.json?name=advil&SAB=RXNORM&SUPPRESS=N');
+
+    dd($response->json());
+    // return $response->json();
+
+});
 
