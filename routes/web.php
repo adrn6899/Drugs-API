@@ -12,10 +12,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
+
+Route::get('/logout',function(){
+    Auth::logout();
+    return redirect('/');
+});
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::resource('Openfda','OpenfdaController');
 Route::get('/openfda','OpenfdaController@index')->middleware('auth');
@@ -35,7 +43,12 @@ Route::get('/getalldrugs','RxController@getAllDrugs')->name('getall.drugs');
 
 
 
+Route::get('/try',function(){
 
-Auth::routes();
+    $response = Http::get('https://rxnav.nlm.nih.gov/REST/drugs.json?name=advil&SAB=RXNORM&SUPPRESS=N');
 
-Route::get('/home', 'HomeController@index')->name('home');
+    dd($response->json());
+    // return $response->json();
+
+});
+

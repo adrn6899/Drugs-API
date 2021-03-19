@@ -1,5 +1,8 @@
 
 // $(document).ready(function(){
+
+
+
 	
 // 	$("#fetch3").click(function(e){
 // 		var mdcn1 = document.getElementById("medicine1").value;
@@ -65,21 +68,27 @@
 // 	});
 // });
 $(document).ready(function(){
-	var rxcui1Images = [];
-	var rxcui2Images = [];
-	
+		
 	$("#fetch3").click(function(e){
+		e.preventDefault();
+		$('#main').empty();
+		$('#rximages').empty();
+		$('#rightimages').empty();
+
+		var rxcui1Images = [];
+		var rxcui2Images = [];
+		var brandedMdcn1 = [];
+		var brandedMdcn2 = [];
 		var mdcn1 = document.getElementById("medicine1").value;
 		var mdcn2 = document.getElementById("medicine2").value;
-		console.log(mdcn1,mdcn2);
 		var rxcui1;
 		var rxcui2;
-		e.preventDefault();
-		$('#main').html('');
-		$('#rximages').empty();
 
-		getImages(mdcn1,rxcui1Images);
-		getImages(mdcn2,rxcui2Images);
+		rxcui1Images = getImages(mdcn1,rxcui1Images);
+		rxcui2Images = getImages(mdcn2,rxcui2Images);
+
+		brandedMdcn1 = getRelatedMedicine(mdcn1);
+		brandedMdcn2 = getRelatedMedicine(mdcn2);
 		
 		$.ajax({
 			type: 'GET',
@@ -117,8 +126,8 @@ $(document).ready(function(){
 								<textarea id="inter_severe" cols="80" rows="8" disabled  style="background-color:#ffffff">${response.fullInteractionTypeGroup[0].fullInteractionType[0].interactionPair[0].severity}</textarea>										
 								`);
 								
-								nextImage('rxcui1Images',mdcn1,rxcui1Images,0);
-								nextImage('rxcui2Images',mdcn2,rxcui2Images,0);
+								leftImages('rxcui1Images',mdcn1,rxcui1Images,0, addSelect(mdcn1,brandedMdcn1));
+								rightImages('rxcui2Images',mdcn2,rxcui2Images,0, addSelect(mdcn2,brandedMdcn2));
 
 								$('#rxcui1Images').click(function(){
 									var id =  $(this).find('i').text();
@@ -144,7 +153,6 @@ $(document).ready(function(){
 						
 							sessionStorage.setItem("DESC",interDesc);
 							sessionStorage.setItem("SEVERITY",interSevere);
-
 						},
 				});
 
@@ -152,27 +160,6 @@ $(document).ready(function(){
 			}
 		});
 	}); //fetch3
-
-
-	// $('#showimage').click(function(e){
-	// 	e.preventDefault();
-
-	// 	console.log(rxcui1Images);
-	// 	console.log(rxcui1Images[0]);
-
-	// 	nextImage(mdcn1,rxcui1Images,0)
-
-	// 	console.log(rxcui2Images);
-	// })
-
-	// $('.rximages').on('click','.nextimages',function(e){
-	// 	e.preventDefault();
-	// 	var id = $(this).data('id');
-	// 	var whois = $('[data-id="'+id+'"]').find('i').text();
-	// 	console.log(id, ' from ' + whois);
-	// 	// nextImage(mdcn1,rxcui1Images, id);
-	// });
-
 
 
 	function getImages(med,thecollection){
@@ -193,16 +180,42 @@ $(document).ready(function(){
 		return thecollection;
 	}
 
-	function nextImage(name,medname,imagearray, id){
+	function leftImages(name,medname,imagearray, id, dynamicSelect){
 		$('#rximages').empty();
 		var accessIndex = parseInt(id);
 		accessIndex += 1;
 		console.log(imagearray[accessIndex]);
-		$('.rximages').append('<div class="card" style="width:200px;" id="'+name+'">'+
+		$('.rximages').html('<h4>Related Images : '+medname+'<h4><div class="card" style="width:200px;" id="'+name+'">'+
 		'<img class="card-img-top" src="'+imagearray[accessIndex]+'" alt="Card image cap">'+
 		'<div class="card-body"><h5 class="card-title">'+ medname +'</h5>'+
-		'<button class="btn btn-primary nextimages">View Next <i>'+accessIndex+'</i></button>'+
-		'</div></div>');
+		'<button class="btn btn-primary leftImages">View Next <i>'+accessIndex+'</i></button>'+
+		'</div></div><div>'+dynamicSelect+'</div>');
+	}
+
+
+	function rightImages(name,medname,imagearray,id, dynamicSelect){
+		$('#rightimages').empty();
+		var accessIndex = parseInt(id);
+		accessIndex += 1;
+		$('.rightimages').html('<h4>Related Images : '+medname+'<h4><div class="card" style="width:200px;" id="'+name+'">'+
+		'<img class="card-img-top" src="'+imagearray[accessIndex]+'" alt="Card image cap">'+
+		'<div class="card-body"><h5 class="card-title">'+ medname +'</h5>'+
+		'<button class="btn btn-primary leftImages">View Next <i>'+accessIndex+'</i></button>'+
+		'</div></div><di>'+dynamicSelect+'</div>');
+	}
+
+	function addSelect(medname,medicines){
+		// console.log(medicines,"medicines from addselect");
+		var selectContent = '<h4>Available Branded Drugs : '+medname+'</h4><select class="custom-select" size="10"><option selected>'+medname+'</option>';
+
+		$.each(medicines, function(key,value){
+			selectContent += '<option>'+value+'</option>';
+		});
+
+		selectContent += '</select>';
+
+		// console.log(selectContent);
+		return selectContent;
 	}
 
 
@@ -220,6 +233,28 @@ $(document).ready(function(){
 		}
 		
 	}
+
+
+	function getRelatedMedicine(medname){
+		var brandedDrugs = [];
+		$.get({
+			url: 'https://rxnav.nlm.nih.gov/REST/drugs.json?name='+medname+'&SAB=RXNORM&SUPPRESS=N',
+			dataType: 'json',
+			success:function(data){
+				$.each(data.drugGroup.conceptGroup, function(key,value){
+					if(value.tty == "SBD"){
+						// console.log(value,"SBD");
+						$.each(value.conceptProperties, function(key,value){
+							brandedDrugs.push(value.synonym);
+						})
+					}
+				});
+			},
+		});
+
+		return brandedDrugs;
+	}
+
 
 	var availableDrugs = [];
 

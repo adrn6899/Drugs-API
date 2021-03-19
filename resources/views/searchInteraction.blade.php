@@ -15,14 +15,23 @@
         <i class="fas fa-prescription-bottle-alt fa-7x" style="color:#6c757d;"></i>
         <br> NO Content Available <span><h5>search for medicines</h5></span></h1> 
     </div>
+    <div class="interaction-contents">
     <div class="row">
         <div class="col">
             <div id="main">
             </div>
         </div>
+    </div>
+    <div class="row">
         <div class="col">
-            <div class="rximages"></div>
+            <div class="rximages">
+            </div>
         </div>
+        <div class="col">
+            <div class="rightimages">
+        </div>
+        </div>
+    </div>
     </div>
 </div>
     <script src="{{asset('js/interaction.js')}}"></script>

@@ -29,10 +29,6 @@ window.addEventListener('load', () => {
 	})
 	
 	$(function(){
-
-	console.log($('#result-branded').text());
-	console.log($('#result-description').text());
-
 	// save button 
 	$('#fetch_all').on('click', function(e){
         e.preventDefault();
