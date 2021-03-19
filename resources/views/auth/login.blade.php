@@ -65,6 +65,9 @@
                             </div>
                         </div>
                     </form>
+                        <div style="text-align:center;">
+                            <a href="{{route('register')}}" class="btn btn-link">Not yet registered? Click here</a>
+                    </div>
                 </div>
             </div>
         </div>

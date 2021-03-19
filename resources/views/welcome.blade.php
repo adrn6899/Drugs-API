@@ -51,5 +51,10 @@
             <div>
             @include('footer')
             </div>
+            <script>
+                function onLogout(){
+                    sessionStorage.clear();
+                };
+            </script>
     </body>
 </html>
