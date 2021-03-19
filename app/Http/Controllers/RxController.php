@@ -109,6 +109,7 @@ class RxController extends Controller
 
 
         // dd($rx);
+        return response()->json(["message" => "Saved Successfully"]);
     }
 
     public function getAllDrugs(Request $request)

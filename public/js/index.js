@@ -185,6 +185,7 @@ $(document).ready(function(){
                 const ask = $('#ask_d').val();
                 const dosage = $('#d_dos').val();
                 const preggy = $('#d_preg').val();
+				sessionStorage.setItem("FDA_SEARCH",mdcn);
                 sessionStorage.setItem("BRANDED",brand);
                 sessionStorage.setItem("GENERIC",generic);
                 sessionStorage.setItem("DESCRIPTION",desc);

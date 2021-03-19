@@ -46,6 +46,7 @@ $(document).ready(function(){
 						const branded = $('#is_branded').val();
 				        const medName = $('#med_name').val();
 				        const rxcui = $('#rxcui_id').val();
+						sessionStorage.setItem('RX_SEARCH', $('#rxc').val());
 				        sessionStorage.setItem("BRAND_NAME",branded);
 				        sessionStorage.setItem("MED_NAME",medName);
 				        sessionStorage.setItem("RXCUI",rxcui);

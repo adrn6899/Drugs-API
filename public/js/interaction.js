@@ -150,7 +150,9 @@ $(document).ready(function(){
 							$('.no-content').remove();
 							const interDesc = $('#inter_desc').val();
 							const interSevere = $('#inter_severe').val();
-						
+							
+							sessionStorage.setItem('MED1_INTERACTION', mdcn1);
+							sessionStorage.setItem('MED2_INTERACTION', mdcn2);
 							sessionStorage.setItem("DESC",interDesc);
 							sessionStorage.setItem("SEVERITY",interSevere);
 						},

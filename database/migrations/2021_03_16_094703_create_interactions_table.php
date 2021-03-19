@@ -17,7 +17,6 @@ class CreateInteractionsTable extends Migration
             $table->bigInteger('user_id');
             $table->id();
             $table->text('Interaction');
-            $table->text('Description');
             $table->text('Severity');
             $table->timestamps();
         });
