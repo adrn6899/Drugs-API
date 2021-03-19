@@ -15,6 +15,7 @@ class CreateInteractionTable extends Migration
     {
         Schema::create('interaction', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
             $table->text('Brand_Name');
             $table->text('Generic_Name');
             $table->text('Description');

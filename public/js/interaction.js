@@ -138,6 +138,7 @@ $(document).ready(function(){
 								// <input type="text" id="inter_desc" value="${response.fullInteractionTypeGroup[0].fullInteractionType[0].interactionPair[0].description}">						
 						},
 						complete:function(){
+							$('.no-content').remove();
 							const interDesc = $('#inter_desc').val();
 							const interSevere = $('#inter_severe').val();
 						

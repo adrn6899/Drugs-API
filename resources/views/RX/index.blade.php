@@ -14,7 +14,12 @@
         <p>To submit for database purpose</p>
         <button type="submit" class="btn-secondary" onclick="handleSubmit()">Save</button>
     </div> --}}
-	<div class="row" id="main" style="padding:20px;"></div>
+	<div class="row" id="main" style="padding:20px;">
+		<div style="display:block;margin-left:auto;margin-right:auto;text-align:center;">
+			<h1 class="text-muted"><i class="fas fa-file-prescription fa-7x" style="color:#6c757d;"></i>
+			<br> NO Content Available <span><h5>search for medicine</h5></span></h1> 
+		</div>
+	</div>
 </div>
 	<script src="{{asset('js/Rx.js')}}"></script>
 	<script src="{{asset('js/rxsession.js')}}"></script>

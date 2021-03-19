@@ -1,4 +1,4 @@
-<div class="container" style="padding:6%;">
+<div class="container">
 <div class="alert alert-primary" role="alert">
   <h1><i>Wonder how it works?!</i></h1>
 </div>
