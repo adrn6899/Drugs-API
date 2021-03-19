@@ -1,6 +1,10 @@
 @extends('welcome')
 @section('content')
 
+<div id="recentSearches">
+</div>
+
+<div id='knowYourMed-form'>
     <form action='#' method="GET" ></form>
         @csrf
         
@@ -41,8 +45,11 @@
                 <strong>Severity:</strong> <span id="result-severity" name="severity">
             </h5>    
         </div>
-            <button type="Submit" class="btn btn-success" id="fetch_all">Save</button>
+            <button type="Submit" class="btn btn-primary" id="fetch_all">Save</button>
     </form> 
-
+</div>
+<div id="dialog" title="Save to Medicine List">
+<p id="dialog-content"></p>
+</div>
 <script src="{{asset('js/getall.js')}}"></script>
 @endsection
