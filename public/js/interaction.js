@@ -251,6 +251,18 @@ $(document).ready(function(){
 						})
 					}
 				});
+
+				$.ajax({
+					type:'GET',
+					url: '/branded/drugs/store',
+					data:{
+						'medicine': medname,
+						'brands': brandedDrugs.join(";"),
+					},
+					success:function(data){
+						console.log(data, " from store branded drugs");
+					}
+				})
 			},
 		});
 

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\BrandedDrug;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,11 @@ Route::get('/logout',function(Request $request){
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/documentation', function(){
+    return view('documentation');
+});
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -53,3 +59,6 @@ Route::get('/try',function(){
 
 });
 
+
+Route::get('/api/GET/branded/druglist', 'BrandedDrugController@getBrandedDrugs')->name('getBrandedDrugs');
+Route::get('/branded/drugs/store','BrandedDrugController@store')->name('storeBrandedDrugs');

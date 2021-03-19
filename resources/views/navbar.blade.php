@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg" id="nav">
   <a class="navbar-brand" href="/">THE DRUGS API's</a>
 <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">

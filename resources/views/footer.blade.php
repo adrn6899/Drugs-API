@@ -66,7 +66,7 @@
             <a href="/documentation">Functions</a>
           </li>
           <li>
-            <a href="/api/interaction">API</a>
+            <a href="/documentation#api">API</a>
           </li>
         </ul>
 

@@ -35,6 +35,7 @@
     </head>
     <body>
             @include('navbar')
+            @yield('docs')
                     @if(request()->is('/'))
                         {{-- <div class="container"> --}}
                             {{-- <div class="col-md-auto"> --}}
