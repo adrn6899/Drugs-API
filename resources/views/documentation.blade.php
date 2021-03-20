@@ -33,7 +33,7 @@
         <hr>
         <div id="fda">
             <h3>OPEN FDA</h3>
-            <span><h5>API</h5></span>
+            <span><h4>API</h4></span>
             <blockquote>
                 <p>openFDA is an Elasticsearch-based API that serves public FDA data about nouns like drugs, devices, and foods.</p>
 
@@ -46,7 +46,7 @@
         <hr>
         <div id="rxnorm">
             <h3>RX NORM</h3>
-            <span><h5>API</h5></span>
+            <span><h4>API</h4></span>
             <blockquote>
                 <p>RxNorm API is a web service for accessing the current RxNorm data set </p>
                 <p>Get the drug products associated with a specified name. The name can be an ingredient, brand name, clinical dose form, branded dose form, clinical drug component, or branded drug component.</p>
@@ -56,7 +56,7 @@
         <hr>
         <div id="rxnav">
             <h3>RX NAV</h3>
-            <span><h5>API</h5></span>
+            <span><h4>API</h4></span>
             <blockquote>
                 <p>RxNav finds drugs in RxNorm from the names and codes in its constituent vocabularies. RxNav displays links from clinical drugs, both branded and generic, to their active ingredients, drug components and related brand names.</p>
             </blockquote>
@@ -64,7 +64,7 @@
         <hr>
         <div id="functions">
             <h3>FUNCTIONS</h3>
-            <span><h5><i>Technical Aspects</i></h5></span>
+            <span><h4><i>Technical Aspects</i></h4></span>
             <blockquote>
                     <ul class="list-group-flush"> 
                         <li>The system can provide information like dosage intake requirements, 
@@ -72,26 +72,27 @@
                         <li>The system is backed by trusted sources and structured collection of data’s from its 
                             provider namely the openFDA and RxNorm API’s.</li>
                     </ul>
-                    <h5>System Functionalities</h5>
+                    <h4>System Functionalities</h4>
                     <ul class="list-group-flush">
-                        <div id="funcfda"><h5><strong><i>open FDA page</i></strong></h5>
+                        <div id="funcfda"><h4><strong><i>open FDA page</i></strong></h4>
                             <li>Display details from a particular medicine provided by data from openFDA </li>
                         </div>
-                        <div id="funcrxnorm"><h5><strong><i>Rx Norm page</i></strong></h5>
+                        <div id="funcrxnorm"><h4><strong><i>Rx Norm page</i></strong></h4>
                             <li>Search for a name in the RxNorm data set and return the RxCUIs of 
                             any concepts which have that name as an RxNorm term or as a synonym of an RxNorm term.
                             </li>
                         </div>
-                        <div id="funcmain"><h5><strong><i>Main Drug Interaction Application</i></strong></h5>
-                            <li>Show interaction with two medicines entered by users</li>
-                            <li>Describe severity of drugs based from user input</li>
-                            <li>Suggests available branded drugs based from user input</li>
-                            <li>Show related images of drugs/medicine</li>
-                            <li>List all user specific medicine recorded in database</li>
-                            <li>Login and user authentication</li>
+                        <div id="funcmain"><h4><strong><i>Main Drug Interaction Application</i></strong></h4>
+                            <li>A <strong>search bar</strong> backed with a jQuery Autocomplete UI (Data is fetched from website database)</li>
+                            <li>Show <strong>interaction</strong> with two medicines entered by users</li>
+                            <li>Describe <strong>severity of drugs</strong> based from user input</li>
+                            <li>Suggests <strong>available branded drugs</strong> from searched medicine</li>
+                            <li>Show related <strong>images</strong> of that drugs/medicine</li>
+                            <li>List all user specific <strong>medicine records</strong> in database</li>
+                            <li>Functional <strong>Login</strong> and user authentication</li>
                         </div>
-                        <div id="funcapi"><h5><strong><i>Additional Functionality</i></strong></h5>
-                            <li>Provide API GET request for branded drugs, get data from website database</li>
+                        <div id="funcapi"><h4><strong><i>Additional Functionality</i></strong></h4>
+                            <li>Provide <strong>API GET request</strong> for branded drugs, get data from website database</li>
                         </div>
                     </ul>
             </blockquote>
@@ -99,7 +100,7 @@
         <hr>
         <div id="api">
             <h3>WEBSITE API</h3>
-            <span><h5>Pulls data from own database</h5></span>
+            <span><h4>Pulls data from own database</h4></span>
             <div id='getapi'>
                 <h3>GET Request : Branded Drugs</h3>
                 <p>This query searches for all the branded drugs name related to the drug/medicine request.</p>
